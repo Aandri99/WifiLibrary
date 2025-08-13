@@ -12,6 +12,7 @@
 #include "SCPI_RP.h"
 
 #include "common/base_io.h"
+#include "network/tcp_scpi.h"
 #include "uart/uart_scpi.h"
 
 using namespace scpi_rp;
@@ -39,4 +40,23 @@ void SCPIRedPitaya::initStream(Stream *serial) {
   acq.trigger.setInterface(u);
   acq.dma.settings.setInterface(u);
   acq.dma.data.setInterface(u);
+}
+
+void SCPIRedPitaya::initClient(Client *client) {
+  TCPInterface *c = new TCPInterface();
+  c->init(client);
+  g_base_io = c;
+  system.setInterface(c);
+  dio.setInterface(c);
+  aio.setInterface(c);
+  daisy.setInterface(c);
+  pll.setInterface(c);
+  system_led.setInterface(c);
+  gen.setInterface(c);
+  acq.control.setInterface(c);
+  acq.settings.setInterface(c);
+  acq.data.setInterface(c);
+  acq.trigger.setInterface(c);
+  acq.dma.settings.setInterface(c);
+  acq.dma.data.setInterface(c);
 }
