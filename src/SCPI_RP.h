@@ -12,6 +12,7 @@
 #ifndef SCPI_RP_H
 #define SCPI_RP_H
 
+
 #include <Arduino.h>
 #include <Client.h>
 #include <Stream.h>
