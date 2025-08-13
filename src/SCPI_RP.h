@@ -12,6 +12,7 @@
 #ifndef SCPI_RP_H
 #define SCPI_RP_H
 
+#include <Client.h>
 #include <Stream.h>
 #include <stdint.h>
 
@@ -39,6 +40,7 @@ class SCPIRedPitaya {
    *  @param serial Stream for interface.
    */
   void initStream(Stream *serial);
+  void initClient(Client *client);
 
   SCPIAio aio;
   SCPIDaisy daisy;
