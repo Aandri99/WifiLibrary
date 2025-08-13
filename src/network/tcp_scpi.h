@@ -1,6 +1,8 @@
 #ifndef TCP_SCPI_H
 #define TCP_SCPI_H
 
+#include <Arduino.h>
+
 #include <Client.h>
 #include <stdint.h>
 
